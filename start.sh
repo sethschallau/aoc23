@@ -13,7 +13,7 @@ touch "input/day${x}.txt"
 
 # Create a Python file in the code directory with a structure to read the input file
 echo "def main():
-    with open('../input/day${x}.txt', 'r') as file:
+    with open('input/day${x}.txt', 'r') as file:
         for line in file:
             print(line.strip())
 
