@@ -19,8 +19,12 @@ def main():
         for j in range(len(matrix[i])):
             if 48 <= ord(matrix[i][j]) <= 57 or ord(matrix[i][j]) == 46:
                 continue
-            
+
+            if matrix[i][j] != '*':
+                continue
+
             been_there = set()
+            outside = []
             for dx, dy, in directions:
                 temp = []
                 if(48 <= ord(matrix[i+dy][j+dx]) <= 57):
@@ -37,7 +41,10 @@ def main():
                     value = int(''.join(temp))
                     if value not in been_there:
                         been_there.add(value)
-                        total += value
+                        outside.append(value)
+
+            if len(outside) == 2:
+                total += outside[0] * outside[1]
     print(total)
 if __name__ == '__main__':
     main()
